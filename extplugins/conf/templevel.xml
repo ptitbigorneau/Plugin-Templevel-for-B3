@@ -1,0 +1,9 @@
+<configuration plugin="templevel">
+    <settings name="settings">
+
+        <set name="adminlevel">100</set>
+        <set name="mytlevelminlevel">1</set>
+
+        </settings>
+</configuration>
+
