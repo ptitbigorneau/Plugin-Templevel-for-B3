@@ -1,7 +1,7 @@
 # templevel Plugin
 
 __author__  = 'ptitbigorneau'
-__version__ = '1.2'
+__version__ = '1.3'
 
 import b3
 import b3.plugin
@@ -25,6 +25,8 @@ class TemplevelPlugin(b3.plugin.Plugin):
     _adminPlugin = None
     _deltest = None
     _cronTab = None
+    _adminlevel = 100
+    _mytlevelminlevel = 1
 
     def onStartup(self):
 
@@ -47,9 +49,18 @@ class TemplevelPlugin(b3.plugin.Plugin):
     
     def onLoadConfig(self):
 
-        self._adminlevel = self.config.get('settings', 'adminlevel')
-        self._mytlevelminlevel = self.config.get('settings', 'mytlevelminlevel')
-    
+        try:
+            self._adminlevel = self.config.getint('settings', 'adminlevel')
+        except Exception, err:
+            self.warning("Using default value for adminlevel. %s" % (err))
+        self.debug('adminlevel : %s' % (self._adminlevel))
+
+        try:
+            self._mytlevelminlevel = self.config.getint('settings', 'mytlevelminlevel')
+        except Exception, err:
+            self.warning("Using default value for mytlevelminlevel. %s" % (err))
+        self.debug('mytlevelminlevel : %s' % (self._mytlevelminlevel))
+
     def cmd_tlevel(self, data, client, cmd=None):
         """\
         - change level temporarily to a player

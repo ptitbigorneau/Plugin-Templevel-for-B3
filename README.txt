@@ -5,10 +5,7 @@
 # www.ptitbigorneau.fr
 
 
-
-templevel plugin (v1.2.0) for B3
-
-
+templevel plugin (v1.3) for B3
 
 
 Installation
@@ -18,10 +15,10 @@ Installation
  
 * copy templevel.py into b3/extplugins
  
-* copy templevel.xml into b3/extplugins/conf
+* copy templevel.ini into b3/extplugins/conf
  
 * create the templevel table in your database importing the tlevel.sql file.
  
 * update your main b3 config file with :
- <plugin name="templevel" config="@b3/extplugins/conf/templevel.xml"/>
+ <plugin name="templevel" config="@b3/extplugins/conf/templevel.ini"/>
 
